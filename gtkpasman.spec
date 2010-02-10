@@ -15,7 +15,7 @@ Patch0:		gtkpasman-fix_default_store.patch
 Group:		File tools
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot 
 License:	GPLv2+ 
-Requires:	gpg
+Requires:	gnupg
 BuildRequires:	gtk+2-devel
 
 

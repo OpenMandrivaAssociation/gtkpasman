@@ -20,9 +20,15 @@ BuildRequires:	gtk+2-devel
 
 
 %description
-It is a graphical interface to manage the usage of passwords related to servers or services, grouped by customers (plateforms, etc.) The purpose is to provide system and network administrators a convenient tool to manage a passwords knowledge base related to customers, servers, services... 
-It can help to retrieve passwords, or even connect to servers (ssh, telnet, ftp...) Unix, C compiler, GTK+ libraries are required in addition to gnupg. 
-Passwords must be kept in a gnupg crypted file. The structure of the file is predefined, but very easy to edit and maintain. The gtk application can switch between a discret applet and a full list of containers. 
+It is a graphical interface to manage the usage of passwords related to servers
+or services, grouped by customers (plateforms, etc.) The purpose is to provide
+system and network administrators a convenient tool to manage a passwords
+knowledge base related to customers, servers, services...
+
+It can help to retrieve passwords, or even connect to servers (ssh, telnet, 
+FTP...). Passwords will be kept in a gnupg crypted file. The structure of the 
+file is predefined, but very easy to edit and maintain. The gtk application 
+can switch between a discreet applet and a full list of containers. 
 
 %prep 
 %setup -q -a 0 

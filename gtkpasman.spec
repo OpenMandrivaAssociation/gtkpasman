@@ -48,3 +48,20 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root) 
 %doc README NEWS AUTHORS 
 %{_bindir}/gtkpasman
+
+
+%changelog
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 0.10-3mdv2011.0
++ Revision: 610995
+- rebuild
+
+* Wed Feb 10 2010 Michael Scherer <misc@mandriva.org> 0.10-2mdv2010.1
++ Revision: 504000
+- fix wrong requires
+- fix rpmlint warning about description
+
+* Wed Feb 10 2010 Michael Scherer <misc@mandriva.org> 0.10-1mdv2010.1
++ Revision: 503508
+- import gtkpasman, spec proposed by Marianne Lombard, bug #56802
+
+

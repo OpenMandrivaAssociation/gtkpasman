@@ -1,23 +1,14 @@
-%define name	gtkpasman
-%define version 0.10
-%define release %mkrel 3
-
-Name:		%{name} 
-Summary:	GTK passwords manager for system and network administrators   
-Version:	%{version} 
-Release:	%{release} 
-Source0:	http://downloads.sourceforge.net/project/gtkpasman/%{name}-sources/%{version}/%{name}-%{version}.tar.gz
-URL:		http://gtkpasman.sourceforge.net/
-# Patch correct an error in sample file who crash the application when you try to read it
-# upstream have been notified of the problem 
-Patch0:		gtkpasman-fix_default_store.patch
-
+Summary:	GTK passwords manager for system and network administrators
+Name:		gtkpasman
+Version:	0.12.1
+Release:	1
+License:	GPLv2+
 Group:		File tools
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot 
-License:	GPLv2+ 
+Url:		http://gtkpasman.sourceforge.net/
+Source0:	http://downloads.sourceforge.net/project/gtkpasman/%{name}-sources/%{version}/%{name}-%{version}.tar.xz
+BuildRequires:	pkgconfig(gio-2.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 Requires:	gnupg
-BuildRequires:	gtk+2-devel
-
 
 %description
 It is a graphical interface to manage the usage of passwords related to servers
@@ -25,43 +16,29 @@ or services, grouped by customers (plateforms, etc.) The purpose is to provide
 system and network administrators a convenient tool to manage a passwords
 knowledge base related to customers, servers, services...
 
-It can help to retrieve passwords, or even connect to servers (ssh, telnet, 
-FTP...). Passwords will be kept in a gnupg crypted file. The structure of the 
-file is predefined, but very easy to edit and maintain. The gtk application 
-can switch between a discreet applet and a full list of containers. 
+It can help to retrieve passwords, or even connect to servers (ssh, telnet,
+FTP...). Passwords will be kept in a gnupg crypted file. The structure of the
+file is predefined, but very easy to edit and maintain. The gtk application
+can switch between a discreet applet and a full list of containers.
 
-%prep 
-%setup -q -a 0 
-%patch0 -p0
-%build 
-./autogen.sh 
+%files -f %{name}.lang
+%doc README NEWS AUTHORS
+%{_bindir}/gtkpasman
+%{_datadir}/applications/gtkpasman.desktop
+%{_datadir}/glib-2.0/schemas/gtkpasman.gschema.xml
+
+#----------------------------------------------------------------------------
+
+%prep
+%setup -q
+
+%build
+autoreconf -fi
+%configure2_5x
 %make
 
+%find_lang %{name}
+
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall
-
-%clean 
-rm -rf $RPM_BUILD_ROOT 
-
-%files 
-%defattr(-,root,root) 
-%doc README NEWS AUTHORS 
-%{_bindir}/gtkpasman
-
-
-%changelog
-* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 0.10-3mdv2011.0
-+ Revision: 610995
-- rebuild
-
-* Wed Feb 10 2010 Michael Scherer <misc@mandriva.org> 0.10-2mdv2010.1
-+ Revision: 504000
-- fix wrong requires
-- fix rpmlint warning about description
-
-* Wed Feb 10 2010 Michael Scherer <misc@mandriva.org> 0.10-1mdv2010.1
-+ Revision: 503508
-- import gtkpasman, spec proposed by Marianne Lombard, bug #56802
-
+%makeinstall_std
 

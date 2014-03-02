@@ -37,8 +37,7 @@ autoreconf -fi
 %configure2_5x
 %make
 
-%find_lang %{name}
-
 %install
 %makeinstall_std
 
+%find_lang %{name}

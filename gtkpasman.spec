@@ -1,7 +1,7 @@
 Summary:	GTK passwords manager for system and network administrators
 Name:		gtkpasman
 Version:	0.12.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		File tools
 Url:		http://gtkpasman.sourceforge.net/

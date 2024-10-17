@@ -4,7 +4,7 @@ Version:	0.12.1
 Release:	2
 License:	GPLv2+
 Group:		File tools
-Url:		http://gtkpasman.sourceforge.net/
+Url:		https://gtkpasman.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/gtkpasman/%{name}-sources/%{version}/%{name}-%{version}.tar.xz
 BuildRequires:	pkgconfig(gio-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)

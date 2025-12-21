@@ -6,6 +6,11 @@ License:	GPLv2+
 Group:		File tools
 Url:		https://gtkpasman.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/gtkpasman/%{name}-sources/%{version}/%{name}-%{version}.tar.xz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gio-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 Requires:	gnupg
